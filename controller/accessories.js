@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const accessory = await Accessory.findById(req.params.id)
-        res,json(accessory)
+        res.json(accessory)
     } catch (error) {
         res.status(400).json(error)
     }

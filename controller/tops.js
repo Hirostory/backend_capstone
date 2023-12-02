@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const top = await Top.findById(req.params.id)
-        res,json(top)
+        res.json(top)
     } catch (error) {
         res.status(400).json(error)
     }
@@ -62,7 +62,7 @@ router.put("/:id", async (req, res) => {
 //Top DELETE Route 
 router.delete("/:id", async (req, res) => {
     try {
-        res.json( await Top.findByIdAndRemove(req.params.id))
+        res.json( await Top.findByIdAndDelete(req.params.id))
     } catch (error) {
         res.status(400).json(error)
     }

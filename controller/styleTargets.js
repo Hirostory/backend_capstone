@@ -17,14 +17,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const styleTarget = await StyleTarget.findById(req.params.id)
-            .populate("tops")
-            .populate("bottoms")
-            .populate("shoes")
-            .populate("outerwears")
-            .populate("accessorys")
-            .populate("others")
-
-        res,json(styleTarget)
+        res.json(styleTarget)
     } catch (error) {
         res.status(400).json(error)
     }
@@ -51,7 +44,7 @@ router.put("/:id", async (req, res) => {
 // StyleTarget DELETE Route
 router.delete("/:id", async (req, res) => {
     try {
-        res.json( await StyleTarget.findByIdAndRemove(req.params.id))
+        res.json( await StyleTarget.findByIdAndDelete(req.params.id))
     } catch (error) {
         res.status(400).json(error)
     }

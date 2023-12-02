@@ -18,7 +18,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
     try {
         const outerwear = await Outerwear.findById(req.params.id)
-        res,json(outerwear)
+        res.json(outerwear)
     } catch (error) {
         res.status(400).json(error)
     }
@@ -62,7 +62,7 @@ router.put("/:id", async (req, res) => {
 //Outerwear DELETE Route 
 router.delete("/:id", async (req, res) => {
     try {
-        res.json( await Outerwear.findByIdAndRemove(req.params.id))
+        res.json( await Outerwear.findByIdAndDelete(req.params.id))
     } catch (error) {
         res.status(400).json(error)
     }
