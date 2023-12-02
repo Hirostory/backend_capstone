@@ -39,6 +39,7 @@ router.post("/:styleId/add", async (req, res) => {
         const styleTarget = await StyleTarget.findById(styleId)
         console.log(styleTarget)
         styleTarget.bottoms.push(newBottom)
+        await styleTarget.save()
 
         console.log("New Bottom created:", newBottom)
         console.log("Updated Style Target:", styleTarget)

@@ -39,6 +39,7 @@ router.post("/:styleId/add", async (req, res) => {
         const styleTarget = await StyleTarget.findById(styleId)
         console.log(styleTarget)
         styleTarget.outerwears.push(newOuterwear)
+        await styleTarget.save()
 
         console.log("New Outerwear created:", newOuterwear)
         console.log("Updated Style Target:", styleTarget)
