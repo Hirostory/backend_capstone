@@ -27,7 +27,7 @@ const otherController = require("./controller/others.js")
 
 // Middleware Use
 app.use(express.urlencoded({extended: true}))
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method')) 
 app.use(cors())
 app.use(morgan('dev'))
 app.use(express.json())
